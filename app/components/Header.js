@@ -36,7 +36,7 @@ export default function Header() {
     }
   };
 
-  // Ana menü öğeleri
+  // Ana menü öğeleri - ID'leri doğru bölümlere göre ayarlanmış hali
   const menuItems = [
     { 
       title: 'Ana Sayfa', 
@@ -46,9 +46,9 @@ export default function Header() {
       title: 'Hizmetlerimiz', 
       href: '#services',
       dropdown: [
-        { title: 'Web Tasarım', href: '#web-design' },
-        { title: 'Mobil Uygulama', href: '#mobile-app' },
-        { title: 'Yazılım Geliştirme', href: '#software-dev' }
+        { title: 'Web Tasarım', href: '#services' },
+        { title: 'Mobil Uygulama', href: '#services' },
+        { title: 'Yazılım Geliştirme', href: '#services' }
       ]
     },
     { 
@@ -56,12 +56,12 @@ export default function Header() {
       href: '#portfolio' 
     },
     { 
-      title: 'Ekibimiz', 
-      href: '#team' 
+      title: 'Teknolojiler', 
+      href: '#techShowcase' 
     },
     { 
       title: 'İletişim', 
-      href: '#contact' 
+      href: '#iletisim' 
     }
   ];
 
@@ -132,7 +132,7 @@ export default function Header() {
             </div>
             
             {/* İletişim Butonu */}
-            <Link href="#contact" legacyBehavior>
+            <Link href="#iletisim" legacyBehavior>
               <a className="ml-4 px-5 py-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Bize Ulaşın
               </a>
@@ -208,7 +208,7 @@ export default function Header() {
               ))}
               
               {/* Mobil İletişim Butonu */}
-              <Link href="#contact" legacyBehavior>
+              <Link href="#iletisim" legacyBehavior>
                 <a 
                   className="mx-2 my-2 px-4 py-2 bg-gradient-to-r from-primary to-purple-600 text-white font-medium rounded-lg text-center"
                   onClick={() => setIsOpen(false)}

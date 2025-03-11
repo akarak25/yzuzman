@@ -85,7 +85,7 @@ export default function TechShowcase() {
   };
 
   return (
-    <section className="py-20 overflow-hidden bg-gray-100 dark:bg-black text-gray-900 dark:text-white relative">
+    <section id="techShowcase" className="py-20 overflow-hidden bg-gray-100 dark:bg-black text-gray-900 dark:text-white relative">
       {/* Arka plan efektleri */}
       <div className="absolute inset-0 bg-gray-100 dark:bg-black">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-indigo-300/30 dark:bg-purple-800/20 rounded-full filter blur-[100px]"></div>

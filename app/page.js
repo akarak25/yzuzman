@@ -12,6 +12,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 export default function Home() {
   useEffect(() => {
@@ -85,15 +86,7 @@ export default function Home() {
       <Footer />
       
       {/* Sabit "Yukarı çık" butonu */}
-      <button 
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 bg-primary dark:bg-primary/80 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-indigo-700 transition-colors"
-        aria-label="Yukarı çık"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-      </button>
+      <ScrollToTopButton />
     </main>
   );
 }

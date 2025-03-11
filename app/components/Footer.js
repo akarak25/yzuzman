@@ -226,20 +226,7 @@ export default function Footer() {
         </Container>
       </div>
       
-      {/* Scroll to top button */}
-      <motion.button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary hover:bg-primary-600 text-white flex items-center justify-center shadow-lg hover:shadow-primary/30 z-50"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{ duration: 0.2 }}
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-      </motion.button>
+      {/* Footer'daki Scroll to top button kaldırıldı */}
     </footer>
   );
 }

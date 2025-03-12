@@ -4,12 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight, FaLinkedin } from 'react-icons/fa';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1: sol, 1: sağ
   const [autoplay, setAutoplay] = useState(true);
   const timerRef = useRef(null);
+  const { texts, language } = useLanguage();
 
   // Referanslar
   const testimonials = [
@@ -136,9 +138,9 @@ export default function Testimonials() {
       
       <Container className="relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Müşterilerimiz Ne Diyor?</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{texts.testimonials.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Müşterilerimizin memnuniyeti en büyük önceliğimiz. İşte bazılarının görüşleri.
+            {texts.testimonials.subtitle}
           </p>
         </div>
         
@@ -189,7 +191,7 @@ export default function Testimonials() {
                   <div className="flex flex-col md:flex-row items-center mb-6 border-b border-gray-100 dark:border-gray-700 pb-6">
                     <div className="mb-4 md:mb-0 md:mr-6 relative">
                       <div className="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden relative z-10">
-                        <span className="text-gray-400 dark:text-gray-500">Avatar</span>
+                        <span className="text-gray-400 dark:text-gray-500">{texts.testimonials.projectImage}</span>
                       </div>
                       <div className="absolute -bottom-2 -left-2 w-28 h-28 bg-gradient-to-br from-primary to-purple-500 rounded-full opacity-20 blur-sm"></div>
                     </div>
@@ -223,7 +225,7 @@ export default function Testimonials() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center mt-3 text-primary dark:text-primary-400 hover:underline"
                       >
-                        <FaLinkedin className="mr-1" /> Profili Görüntüle
+                        <FaLinkedin className="mr-1" /> {texts.testimonials.viewProfile}
                       </a>
                     </div>
                   </div>

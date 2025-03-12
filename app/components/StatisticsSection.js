@@ -3,34 +3,36 @@
 import { useRef, useEffect, useState } from 'react';
 import { FaLaptopCode, FaUsers, FaSmile, FaTrophy } from 'react-icons/fa';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function StatisticsSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { texts } = useLanguage();
 
   // İstatistik verileri
   const stats = [
     {
       icon: <FaLaptopCode className="text-blue-500 dark:text-blue-400 w-8 h-8" />,
-      title: "Tamamlanan Projeler",
+      title: texts.statistics.completedProjects,
       value: 120,
       color: "text-blue-500 dark:text-blue-400"
     },
     {
       icon: <FaUsers className="text-green-500 dark:text-green-400 w-8 h-8" />,
-      title: "Mutlu Müşteriler",
+      title: texts.statistics.happyClients,
       value: 85,
       color: "text-green-500 dark:text-green-400"
     },
     {
       icon: <FaSmile className="text-purple-500 dark:text-purple-400 w-8 h-8" />,
-      title: "Çalışma Saatleri",
+      title: texts.statistics.workingHours,
       value: "12.500+",
       color: "text-purple-500 dark:text-purple-400"
     },
     {
       icon: <FaTrophy className="text-amber-500 dark:text-amber-400 w-8 h-8" />,
-      title: "Kazanılan Ödüller",
+      title: texts.statistics.awards,
       value: 15,
       color: "text-amber-500 dark:text-amber-400"
     }
@@ -38,10 +40,10 @@ export default function StatisticsSection() {
 
   // Yetenek yüzdeleri
   const skills = [
-    { name: "Web Tasarım", percentage: 95, color: "indigo" },
-    { name: "Frontend", percentage: 90, color: "teal" },
-    { name: "Backend", percentage: 85, color: "purple" },
-    { name: "Mobil", percentage: 80, color: "amber" }
+    { name: texts.statistics.areas.webDesign, percentage: 95, color: "indigo" },
+    { name: texts.statistics.areas.frontend, percentage: 90, color: "teal" },
+    { name: texts.statistics.areas.backend, percentage: 85, color: "purple" },
+    { name: texts.statistics.areas.mobile, percentage: 80, color: "amber" }
   ];
 
   // Sayfa görünür olduğunda animasyonları başlat
@@ -74,16 +76,16 @@ export default function StatisticsSection() {
     >
       <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">İstatistikler & Yetenekler</h2>
+          <h2 className="text-4xl font-bold mb-4">{texts.statistics.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            Sayılarla başarılarımız ve uzmanlaştığımız alanlar
+            {texts.statistics.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Sol taraf - İstatistikler */}
           <div>
-            <h3 className="text-2xl font-bold mb-8">Rakamlarla Biz</h3>
+            <h3 className="text-2xl font-bold mb-8">{texts.statistics.byNumbers}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <div 
@@ -108,7 +110,7 @@ export default function StatisticsSection() {
 
           {/* Sağ taraf - Yetenek çemberleri */}
           <div>
-            <h3 className="text-2xl font-bold mb-8">Uzmanlık Alanlarımız</h3>
+            <h3 className="text-2xl font-bold mb-8">{texts.statistics.expertiseAreas}</h3>
             <div className="grid grid-cols-2 gap-8">
               {skills.map((skill, index) => (
                 <div key={index} className="text-center">

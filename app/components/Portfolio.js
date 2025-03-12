@@ -4,8 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaSearchPlus, FaLink, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Portfolio() {
+  const { texts, language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   const [visibleProjects, setVisibleProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -16,66 +18,66 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: 'E-Ticaret Platformu',
-      description: 'Tamamen özelleştirilebilir ve ölçeklenebilir e-ticaret çözümü. 50+ ödeme entegrasyonu ve gelişmiş analitik paneli içerir.',
+      title: texts.portfolio.projects.ecommerce.title,
+      description: texts.portfolio.projects.ecommerce.description,
       category: 'web',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       image: '/placeholder.svg',
-      features: ['Çoklu dil desteği', 'Yapay zeka ürün önerileri', 'Gerçek zamanlı analitik']
+      features: texts.portfolio.projects.ecommerce.features
     },
     {
       id: 2,
-      title: 'Fitness Takip Uygulaması',
-      description: 'Kullanıcıların antrenman, beslenme ve sağlık durumlarını takip edebilecekleri kapsamlı mobil uygulama.',
+      title: texts.portfolio.projects.fitness.title,
+      description: texts.portfolio.projects.fitness.description,
       category: 'mobile',
       technologies: ['React Native', 'Firebase', 'Redux'],
       image: '/placeholder.svg',
-      features: ['Kişiselleştirilmiş antrenman planları', 'Beslenme ve kalori takibi', 'Sağlık verileri entegrasyonu']
+      features: texts.portfolio.projects.fitness.features
     },
     {
       id: 3,
-      title: 'Kurumsal CRM Sistemi',
-      description: 'Büyük ölçekli şirketler için geliştirilen, müşteri ilişkileri yönetim sistemi.',
+      title: texts.portfolio.projects.crm.title,
+      description: texts.portfolio.projects.crm.description,
       category: 'desktop',
       technologies: ['Electron', 'Vue.js', 'PostgreSQL'],
       image: '/placeholder.svg',
-      features: ['Satış takibi', 'Müşteri segmentasyonu', 'Entegre rapor sistemi']
+      features: texts.portfolio.projects.crm.features
     },
     {
       id: 4,
-      title: 'Finans Portalı',
-      description: 'Banka ve finans şirketleri için geliştirilmiş entegre finansal işlem platformu.',
+      title: texts.portfolio.projects.finance.title,
+      description: texts.portfolio.projects.finance.description,
       category: 'web',
       technologies: ['Next.js', 'TypeScript', 'GraphQL'],
       image: '/placeholder.svg',
-      features: ['Gerçek zamanlı finans verileri', 'Güvenli ödeme işlemleri', 'Kullanıcı dostu arayüz']
+      features: texts.portfolio.projects.finance.features
     },
     {
       id: 5,
-      title: 'Sosyal Medya Uygulaması',
-      description: 'Niş hobiler ve ilgi alanları için özelleştirilmiş topluluk tabanlı sosyal platform.',
+      title: texts.portfolio.projects.social.title,
+      description: texts.portfolio.projects.social.description,
       category: 'mobile',
       technologies: ['Flutter', 'Dart', 'Firebase'],
       image: '/placeholder.svg',
-      features: ['Gerçek zamanlı mesajlaşma', 'İçerik keşfetme sistemi', 'Etkinlik planlamacısı']
+      features: texts.portfolio.projects.social.features
     },
     {
       id: 6,
-      title: 'Otel Yönetim Yazılımı',
-      description: 'Otel ve konaklama tesisleri için entegre rezervasyon ve yönetim sistemi.',
+      title: texts.portfolio.projects.hotel.title,
+      description: texts.portfolio.projects.hotel.description,
       category: 'desktop',
       technologies: ['C#', '.NET', 'SQL Server'],
       image: '/placeholder.svg',
-      features: ['Oda yönetimi', 'Rezervasyon takibi', 'Müşteri veritabanı']
+      features: texts.portfolio.projects.hotel.features
     }
   ];
 
   // Kategoriler
   const categories = [
-    { id: 'all', label: 'Tümü' },
-    { id: 'web', label: 'Web Projeleri' },
-    { id: 'mobile', label: 'Mobil Uygulamalar' },
-    { id: 'desktop', label: 'Masaüstü Yazılımlar' }
+    { id: 'all', label: texts.portfolio.categories.all },
+    { id: 'web', label: texts.portfolio.categories.web },
+    { id: 'mobile', label: texts.portfolio.categories.mobile },
+    { id: 'desktop', label: texts.portfolio.categories.desktop }
   ];
 
   // Filtreleme işlemi
@@ -131,9 +133,9 @@ export default function Portfolio() {
     <section id="portfolio" className="py-20 bg-gray-50 dark:bg-gray-900">
       <Container>
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Çalışmalarımız</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{texts.portfolio.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            Tamamladığımız bazı projeler ve müşterilerimiz için geliştirdiğimiz çözümler
+            {texts.portfolio.intro}
           </p>
           
           {/* Kategori filtreleri */}
@@ -230,8 +232,8 @@ export default function Portfolio() {
             className="px-8 py-3 bg-white dark:bg-gray-800 text-primary dark:text-primary-400 border border-primary dark:border-primary-400 rounded-full font-semibold hover:bg-primary hover:text-white dark:hover:bg-primary-400 dark:hover:text-gray-900 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-          >
-            Tüm Projeleri Gör
+            >
+            {texts.portfolio.viewAll}
           </motion.button>
         </div>
       </Container>
@@ -266,17 +268,17 @@ export default function Portfolio() {
               
               {/* Özellikler */}
               <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Özellikler</h3>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{texts.portfolio.features}</h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
-                  {selectedProject.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
+                {selectedProject.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+                ))}
                 </ul>
               </div>
               
               {/* Teknolojiler */}
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">Kullanılan Teknolojiler</h3>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{texts.portfolio.technologies}</h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.technologies.map((tech, index) => (
                     <span 
@@ -292,10 +294,10 @@ export default function Portfolio() {
               {/* Butonlar */}
               <div className="flex gap-4 mt-8">
                 <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-600 transition-colors">
-                  <FaLink /> Demo
+                  <FaLink /> {texts.portfolio.demo}
                 </button>
                 <button className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors">
-                  <FaGithub /> GitHub
+                  <FaGithub /> {texts.portfolio.github}
                 </button>
               </div>
             </div>

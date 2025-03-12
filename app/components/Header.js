@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
 import AnimatedLogo from './AnimatedLogo';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const { texts, language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,28 +41,28 @@ export default function Header() {
   // Ana menü öğeleri - ID'leri doğru bölümlere göre ayarlanmış hali
   const menuItems = [
     { 
-      title: 'Ana Sayfa', 
+      title: language === 'tr' ? 'Ana Sayfa' : 'Home', 
       href: '/' 
     },
     { 
-      title: 'Hizmetlerimiz', 
+      title: language === 'tr' ? 'Hizmetlerimiz' : 'Services', 
       href: '#services',
       dropdown: [
-        { title: 'Web Tasarım', href: '#services' },
-        { title: 'Mobil Uygulama', href: '#services' },
-        { title: 'Yazılım Geliştirme', href: '#services' }
+        { title: language === 'tr' ? 'Web Tasarım' : 'Web Design', href: '#services' },
+        { title: language === 'tr' ? 'Mobil Uygulama' : 'Mobile App', href: '#services' },
+        { title: language === 'tr' ? 'Yazılım Geliştirme' : 'Software Development', href: '#services' }
       ]
     },
     { 
-      title: 'Portfolyo', 
+      title: language === 'tr' ? 'Portfolyo' : 'Portfolio', 
       href: '#portfolio' 
     },
     { 
-      title: 'Teknolojiler', 
+      title: language === 'tr' ? 'Teknolojiler' : 'Technologies', 
       href: '#techShowcase' 
     },
     { 
-      title: 'İletişim', 
+      title: language === 'tr' ? 'İletişim' : 'Contact', 
       href: '#iletisim' 
     }
   ];
@@ -130,18 +132,38 @@ export default function Header() {
             <div className="ml-4">
               <ThemeToggle />
             </div>
+
+            {/* Dil değiştirme butonu */}
+            <button 
+              onClick={toggleLanguage}
+              className="ml-4 px-3 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors flex items-center justify-center"
+              aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+            >
+              <span className="font-medium text-sm">
+                {language === 'tr' ? 'EN' : 'TR'}
+              </span>
+            </button>
             
             {/* İletişim Butonu */}
             <Link href="#iletisim" legacyBehavior>
-              <a className="ml-4 px-5 py-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                Bize Ulaşın
-              </a>
+            <a className="ml-4 px-5 py-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
+            </a>
             </Link>
           </nav>
           
           {/* Mobil Menü Düğmesi */}
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+            <button 
+              onClick={toggleLanguage}
+              className="px-3 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors flex items-center justify-center"
+              aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+            >
+              <span className="font-medium text-sm">
+                {language === 'tr' ? 'EN' : 'TR'}
+              </span>
+            </button>
             <button
               type="button"
               onClick={toggleMenu}
@@ -213,7 +235,7 @@ export default function Header() {
                   className="mx-2 my-2 px-4 py-2 bg-gradient-to-r from-primary to-purple-600 text-white font-medium rounded-lg text-center"
                   onClick={() => setIsOpen(false)}
                 >
-                  Bize Ulaşın
+                  {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
                 </a>
               </Link>
             </nav>

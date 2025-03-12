@@ -1,8 +1,10 @@
 'use client';
 
 import { FaArrowDown } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { texts, language } = useLanguage();
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -13,18 +15,20 @@ export default function Hero() {
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Dijital Dünyada <span className="text-secondary">İzinizi Bırakın</span>
+            {language === 'tr' ? 'Dijital Dünyada ' : 'Leave Your Mark '}
+            <span className="text-secondary">
+              {language === 'tr' ? 'İzinizi Bırakın' : 'in the Digital World'}
+            </span>
           </h1>
           <p className="text-lg md:text-xl mb-8 opacity-90">
-            Web tasarım, mobil uygulama ve yazılım geliştirme konularında uzman ekibimiz, 
-            fikirlerinizi modern ve etkileyici dijital çözümlere dönüştürüyor.
+            {texts.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button onClick={() => scrollToSection('contact')} className="btn-primary">
-              Ücretsiz Danışmanlık
+              {language === 'tr' ? 'Ücretsiz Danışmanlık' : 'Free Consultation'}
             </button>
             <button onClick={() => scrollToSection('portfolio')} className="btn bg-white text-indigo-900 hover:bg-gray-100">
-              Çalışmalarımızı İnceleyin
+              {language === 'tr' ? 'Çalışmalarımızı İnceleyin' : 'View Our Work'}
             </button>
           </div>
         </div>

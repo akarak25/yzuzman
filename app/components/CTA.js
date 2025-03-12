@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaPhone } from 'react-icons/fa';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CTA() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ export default function CTA() {
   const [isLoading, setIsLoading] = useState(false);
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { texts } = useLanguage();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -95,7 +97,7 @@ export default function CTA() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Dijital Dönüşümünüze Bugün Başlayın!
+            {texts.cta.title}
           </motion.h2>
           
           <motion.p 
@@ -104,8 +106,7 @@ export default function CTA() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Rekabette öne geçmek için modern ve etkileyici dijital çözümler geliştiriyoruz.
-            Size özel teklifimizi almak için hemen iletişime geçin.
+            {texts.cta.subtitle}
           </motion.p>
           
           <motion.div
@@ -137,7 +138,7 @@ export default function CTA() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="E-posta adresinizi girin"
+                      placeholder={texts.cta.emailPlaceholder}
                       className="w-full px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                       required
                       disabled={isLoading}
@@ -159,7 +160,7 @@ export default function CTA() {
                       </svg>
                     ) : (
                       <>
-                        Teklif Alın <FaArrowRight className="ml-2" />
+                        {texts.cta.buttonText} <FaArrowRight className="ml-2" />
                       </>
                     )}
                   </motion.button>
@@ -173,7 +174,7 @@ export default function CTA() {
               animate={isVisible ? { opacity: 1 } : {}}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              <span>veya bizi hemen arayın:</span>
+              <span>{texts.cta.orCall}</span>
               <a 
                 href="tel:+902123456789" 
                 className="inline-flex items-center ml-2 font-bold hover:text-white transition-colors group"

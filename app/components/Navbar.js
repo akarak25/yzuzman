@@ -3,9 +3,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { texts } = useLanguage();
 
   return (
     <header className="bg-white shadow-md">
@@ -23,11 +26,12 @@ export default function Navbar() {
         
         {/* Desktop menu */}
         <nav className="hidden md:flex space-x-8">
-          <Link href="/" className="text-dark hover:text-primary font-medium">Ana Sayfa</Link>
-          <Link href="#services" className="text-dark hover:text-primary font-medium">Hizmetlerimiz</Link>
-          <Link href="#about" className="text-dark hover:text-primary font-medium">Hakkımızda</Link>
-          <Link href="#portfolio" className="text-dark hover:text-primary font-medium">Çalışmalarımız</Link>
-          <Link href="#contact" className="text-dark hover:text-primary font-medium">İletişim</Link>
+          <Link href="/" className="text-dark hover:text-primary font-medium">{texts.nav.home}</Link>
+          <Link href="#services" className="text-dark hover:text-primary font-medium">{texts.nav.services}</Link>
+          <Link href="#about" className="text-dark hover:text-primary font-medium">{texts.nav.about}</Link>
+          <Link href="#portfolio" className="text-dark hover:text-primary font-medium">{texts.nav.portfolio}</Link>
+          <Link href="#contact" className="text-dark hover:text-primary font-medium">{texts.nav.contact}</Link>
+          <LanguageToggle />
         </nav>
       </div>
       
@@ -35,11 +39,12 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white py-4 px-6 shadow-inner">
           <nav className="flex flex-col space-y-4">
-            <Link href="/" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>Ana Sayfa</Link>
-            <Link href="#services" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>Hizmetlerimiz</Link>
-            <Link href="#about" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>Hakkımızda</Link>
-            <Link href="#portfolio" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>Çalışmalarımız</Link>
-            <Link href="#contact" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>İletişim</Link>
+            <Link href="/" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>{texts.nav.home}</Link>
+            <Link href="#services" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>{texts.nav.services}</Link>
+            <Link href="#about" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>{texts.nav.about}</Link>
+            <Link href="#portfolio" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>{texts.nav.portfolio}</Link>
+            <Link href="#contact" className="text-dark hover:text-primary font-medium" onClick={() => setIsOpen(false)}>{texts.nav.contact}</Link>
+            <LanguageToggle />
           </nav>
         </div>
       )}

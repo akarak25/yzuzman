@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCode, FaHeart } from 'react-icons/fa';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const { texts, language } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -18,11 +20,11 @@ export default function Footer() {
 
   // Ana menü linkleri
   const navLinks = [
-    { name: 'Ana Sayfa', href: '/' },
-    { name: 'Hizmetlerimiz', href: '#services' },
-    { name: 'Portfolyo', href: '#portfolio' },
-    { name: 'Ekibimiz', href: '#team' },
-    { name: 'İletişim', href: '#iletisim' }
+    { name: language === 'tr' ? 'Ana Sayfa' : 'Home', href: '/' },
+    { name: texts.nav.services, href: '#services' },
+    { name: texts.portfolio.title, href: '#portfolio' },
+    { name: language === 'tr' ? 'Ekibimiz' : 'Our Team', href: '#team' },
+    { name: texts.contact.title, href: '#iletisim' }
   ];
 
   // Sosyal medya linkleri
@@ -36,16 +38,16 @@ export default function Footer() {
 
   // Hizmetler
   const services = [
-    { name: 'Web Tasarım', href: '#' },
-    { name: 'Mobil Uygulama Geliştirme', href: '#' },
-    { name: 'Backend Sistemleri', href: '#' },
-    { name: 'E-ticaret Çözümleri', href: '#' },
-    { name: 'SEO Optimizasyonu', href: '#' }
+    { name: texts.footer.serviceList.webDesign, href: '#' },
+    { name: texts.footer.serviceList.mobileDev, href: '#' },
+    { name: texts.footer.serviceList.backend, href: '#' },
+    { name: texts.footer.serviceList.ecommerce, href: '#' },
+    { name: texts.footer.serviceList.seo, href: '#' }
   ];
 
   // İletişim bilgileri
   const contactInfo = [
-    { icon: <FaMapMarkerAlt />, text: 'Bağdat Caddesi No:123, Kadıköy, İstanbul' },
+    { icon: <FaMapMarkerAlt />, text: texts.footer.address },
     { icon: <FaEnvelope />, text: 'info@yzuzman.com', href: 'mailto:info@yzuzman.com' },
     { icon: <FaPhone />, text: '+90 212 345 67 89', href: 'tel:+902123456789' }
   ];
@@ -95,7 +97,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 dark:text-gray-300">
-              İşinizi dijital dünyada üst seviyeye taşıyoruz. Web, mobil ve yazılım çözümleriyle yanınızdayız.
+              {texts.footer.about}
             </p>
             
             {/* Sosyal Medya İkonları */}
@@ -123,7 +125,7 @@ export default function Footer() {
           {/* Hızlı Linkler */}
           <motion.div variants={itemVariants}>
             <h4 className="text-lg font-semibold mb-6 relative inline-block">
-              Hızlı Bağlantılar
+              {texts.footer.quickLinks}
               <span className="absolute -bottom-1 left-0 w-12 h-1 bg-primary rounded-full"></span>
             </h4>
             <ul className="space-y-3">
@@ -144,7 +146,7 @@ export default function Footer() {
           {/* Hizmetlerimiz */}
           <motion.div variants={itemVariants}>
             <h4 className="text-lg font-semibold mb-6 relative inline-block">
-              Hizmetlerimiz
+              {texts.footer.services}
               <span className="absolute -bottom-1 left-0 w-12 h-1 bg-primary rounded-full"></span>
             </h4>
             <ul className="space-y-3">
@@ -165,7 +167,7 @@ export default function Footer() {
           {/* İletişim */}
           <motion.div variants={itemVariants}>
             <h4 className="text-lg font-semibold mb-6 relative inline-block">
-              İletişim
+              {texts.footer.contact}
               <span className="absolute -bottom-1 left-0 w-12 h-1 bg-primary rounded-full"></span>
             </h4>
             <ul className="space-y-4">
@@ -198,27 +200,27 @@ export default function Footer() {
         <Container>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {year} YZ UZMAN. Tüm hakları saklıdır.
+              &copy; {year} YZ UZMAN. {texts.footer.rights}.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-              <Link href="#" className="hover:text-primary dark:hover:text-primary-400 transition-colors">
-                Gizlilik Politikası
+              <Link href="/privacy-policy" className="hover:text-primary dark:hover:text-primary-400 transition-colors">
+                {texts.footer.privacy}
               </Link>
               <span className="hidden md:inline">|</span>
               <Link href="#" className="hover:text-primary dark:hover:text-primary-400 transition-colors">
-                Kullanım Koşulları
+                {texts.footer.terms}
               </Link>
               <span className="hidden md:inline">|</span>
               <Link href="#" className="hover:text-primary dark:hover:text-primary-400 transition-colors">
-                KVKK
+                {texts.footer.kvkk}
               </Link>
               <span className="hidden md:inline">|</span>
               <span className="flex items-center">
                 <FaCode className="mr-1 text-primary" /> 
                 <span className="text-gray-400">
                   <FaHeart className="inline text-red-500 mx-1 animate-pulse" size={10} /> 
-                  ile yapıldı
+                  {texts.footer.madeWith}
                 </span>
               </span>
             </div>

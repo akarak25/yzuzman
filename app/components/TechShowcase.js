@@ -5,18 +5,20 @@ import { motion } from 'framer-motion';
 import { FaReact, FaMobileAlt, FaNodeJs, FaDatabase, FaCode } from 'react-icons/fa';
 import { SiNextdotjs, SiFlutter, SiExpress, SiAngular, SiVuedotjs, SiDjango, SiLaravel } from 'react-icons/si';
 import Container from './Container';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function TechShowcase() {
   const containerRef = useRef(null);
   const [width, setWidth] = useState(0);
   const [activeCard, setActiveCard] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const { texts, language } = useLanguage();
 
   const cards = [
     {
       icon: <FaReact className="text-white text-5xl" />,
-      title: "Web Geliştirme",
-      description: "React, Vue, Angular, Next.js ile modern web uygulamaları",
+      title: texts.tech.webDev,
+      description: texts.tech.webDevDesc,
       gradient: "from-indigo-600 to-purple-600",
       technologies: [
         { name: "React", icon: <FaReact className="text-white" /> },
@@ -27,8 +29,8 @@ export default function TechShowcase() {
     },
     {
       icon: <FaMobileAlt className="text-white text-5xl" />,
-      title: "Mobil Uygulama",
-      description: "React Native ve Flutter ile cross-platform mobil uygulamalar",
+      title: texts.tech.mobileDev,
+      description: texts.tech.mobileDevDesc,
       gradient: "from-blue-500 to-cyan-500",
       technologies: [
         { name: "React Native", icon: <FaReact className="text-white" /> },
@@ -37,8 +39,8 @@ export default function TechShowcase() {
     },
     {
       icon: <FaNodeJs className="text-white text-5xl" />,
-      title: "Backend Sistemleri",
-      description: "Node.js, Express, Django ve Laravel ile güçlü backend'ler",
+      title: texts.tech.backend,
+      description: texts.tech.backendDesc,
       gradient: "from-green-500 to-emerald-500",
       technologies: [
         { name: "Node.js", icon: <FaNodeJs className="text-white" /> },
@@ -49,15 +51,15 @@ export default function TechShowcase() {
     },
     {
       icon: <FaDatabase className="text-white text-5xl" />,
-      title: "Veritabanı Tasarımı",
-      description: "MongoDB, MySQL, PostgreSQL ile veritabanı çözümleri",
+      title: texts.tech.database,
+      description: texts.tech.databaseDesc,
       gradient: "from-orange-500 to-yellow-500",
       technologies: []
     },
     {
       icon: <FaCode className="text-white text-5xl" />,
-      title: "AI & Machine Learning",
-      description: "TensorFlow, PyTorch ve OpenAI API entegrasyonları",
+      title: texts.tech.ai,
+      description: texts.tech.aiDesc,
       gradient: "from-red-500 to-pink-500",
       technologies: []
     }
@@ -94,9 +96,9 @@ export default function TechShowcase() {
       
       <Container className="relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Teknoloji Yetkinliklerimiz</h2>
+          <h2 className="text-4xl font-bold mb-4">{texts.tech.title}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            En son teknolojileri kullanarak dijital dünyadaki her ihtiyacınıza çözüm üretiyoruz.
+            {texts.tech.subtitle}
           </p>
         </div>
       </Container>
@@ -201,7 +203,7 @@ export default function TechShowcase() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <span>Daha fazlası için yatay kaydırın</span>
+          <span>{texts.tech.scrollText}</span>
         </motion.div>
       </div>
     </section>

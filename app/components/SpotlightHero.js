@@ -2,13 +2,21 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { FaArrowRight, FaRegLightbulb, FaCode, FaMobileAlt } from 'react-icons/fa';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function SpotlightHero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [spotlightVisible, setSpotlightVisible] = useState(false);
   const heroRef = useRef(null);
+<<<<<<< HEAD
   const { t, locale } = useTranslation();
+=======
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -56,19 +64,33 @@ export default function SpotlightHero() {
           <div className="relative z-10">
             <div className="mb-3 animate-fadeIn">
               <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary dark:bg-primary/20 border border-primary/20">
+<<<<<<< HEAD
                 {locale === 'tr' ? 'En Yeni Teknolojiler' : 'Latest Technologies'}
+=======
+                {language === 'tr' ? 'En Yeni Teknolojiler' : 'Latest Technologies'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900 dark:text-white leading-tight animate-fadeInUp" style={{animationDelay: '0.1s'}}>
+<<<<<<< HEAD
               <span className="block">{locale === 'tr' ? 'Dijital Dünyada' : 'Make a Difference'}</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-gradient">
                 {locale === 'tr' ? 'Fark Yaratın' : 'in the Digital World'}
+=======
+              <span className="block">{language === 'tr' ? 'Dijital Dünyada' : 'Make a Difference'}</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-gradient">
+                {language === 'tr' ? 'Fark Yaratın' : 'in the Digital World'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+<<<<<<< HEAD
               {locale === 'tr' 
+=======
+              {language === 'tr' 
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 ? 'Web tasarım, mobil uygulama ve yazılım geliştirme alanlarında uzman ekibimizle, projelerinizi bir üst seviyeye taşıyoruz.'
                 : 'With our expert team in web design, mobile applications and software development, we take your projects to the next level.'}
             </p>
@@ -79,7 +101,11 @@ export default function SpotlightHero() {
                 className="relative group px-6 py-3 bg-gradient-to-r from-primary to-purple-600 hover:from-primary-600 hover:to-purple-700 text-white font-medium rounded-lg shadow-lg hover:shadow-primary/50 transition-all duration-300 text-center overflow-hidden"
               >
                 <span className="relative z-10 flex items-center justify-center">
+<<<<<<< HEAD
                   {locale === 'tr' ? 'Ücretsiz Danışmanlık' : 'Free Consultation'}
+=======
+                  {language === 'tr' ? 'Ücretsiz Danışmanlık' : 'Free Consultation'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                   <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
                 <span className="absolute inset-0 h-full w-full bg-gradient-to-r from-purple-600 to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
@@ -89,29 +115,49 @@ export default function SpotlightHero() {
                 href="#portfolio" 
                 className="px-6 py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center"
               >
+<<<<<<< HEAD
                 {locale === 'tr' ? 'Projelerimizi İnceleyin' : 'View Our Projects'}
+=======
+                {language === 'tr' ? 'Projelerimizi İnceleyin' : 'View Our Projects'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </a>
             </div>
             
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 items-center animate-fadeIn" style={{animationDelay: '0.5s'}}>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary dark:text-primary-400 mb-1 counter-animate" data-target="120">0</div>
+<<<<<<< HEAD
                 <div className="text-sm text-gray-600 dark:text-gray-400">{locale === 'tr' ? 'Tamamlanan Proje' : 'Completed Projects'}</div>
+=======
+                <div className="text-sm text-gray-600 dark:text-gray-400">{language === 'tr' ? 'Tamamlanan Proje' : 'Completed Projects'}</div>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </div>
               
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary dark:text-primary-400 mb-1 counter-animate" data-target="95">0</div>
+<<<<<<< HEAD
                 <div className="text-sm text-gray-600 dark:text-gray-400">{locale === 'tr' ? 'Müşteri Memnuniyeti' : 'Client Satisfaction'}</div>
+=======
+                <div className="text-sm text-gray-600 dark:text-gray-400">{language === 'tr' ? 'Müşteri Memnuniyeti' : 'Client Satisfaction'}</div>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </div>
               
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary dark:text-primary-400 mb-1 counter-animate" data-target="3">0</div>
+<<<<<<< HEAD
                 <div className="text-sm text-gray-600 dark:text-gray-400">{locale === 'tr' ? 'Yıllık Tecrübe' : 'Years Experience'}</div>
+=======
+                <div className="text-sm text-gray-600 dark:text-gray-400">{language === 'tr' ? 'Yıllık Tecrübe' : 'Years Experience'}</div>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </div>
               
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary dark:text-primary-400 mb-1">24/7</div>
+<<<<<<< HEAD
                 <div className="text-sm text-gray-600 dark:text-gray-400">{locale === 'tr' ? 'Teknik Destek' : 'Technical Support'}</div>
+=======
+                <div className="text-sm text-gray-600 dark:text-gray-400">{language === 'tr' ? 'Teknik Destek' : 'Technical Support'}</div>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </div>
             </div>
           </div>
@@ -128,8 +174,13 @@ export default function SpotlightHero() {
                       <div className="inline-block p-4 bg-primary/10 dark:bg-primary/20 mb-4 rounded-full animate-bounce">
                         <FaCode className="w-8 h-8 text-primary" />
                       </div>
+<<<<<<< HEAD
                       <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{locale === 'tr' ? 'Web & Mobil Çözümler' : 'Web & Mobile Solutions'}</h3>
                       <p className="text-gray-500 dark:text-gray-300">{locale === 'tr' ? 'Modern teknolojilerle geliştirilen projeler' : 'Projects developed with modern technologies'}</p>
+=======
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{language === 'tr' ? 'Web & Mobil Çözümler' : 'Web & Mobile Solutions'}</h3>
+                      <p className="text-gray-500 dark:text-gray-300">{language === 'tr' ? 'Modern teknolojilerle geliştirilen projeler' : 'Projects developed with modern technologies'}</p>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     </div>
                   </div>
                 </div>

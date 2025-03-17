@@ -4,14 +4,22 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight, FaLinkedin } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1: sol, 1: sağ
   const [autoplay, setAutoplay] = useState(true);
   const timerRef = useRef(null);
+<<<<<<< HEAD
   const { t } = useTranslation();
+=======
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
   // Referanslar
   const testimonials = [
@@ -138,9 +146,15 @@ export default function Testimonials() {
       
       <Container className="relative z-10">
         <div className="text-center mb-16">
+<<<<<<< HEAD
           <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.testimonials.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             {t.testimonials.subtitle}
+=======
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{texts.testimonials.title}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            {texts.testimonials.subtitle}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </p>
         </div>
         
@@ -191,7 +205,11 @@ export default function Testimonials() {
                   <div className="flex flex-col md:flex-row items-center mb-6 border-b border-gray-100 dark:border-gray-700 pb-6">
                     <div className="mb-4 md:mb-0 md:mr-6 relative">
                       <div className="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden relative z-10">
+<<<<<<< HEAD
                         <span className="text-gray-400 dark:text-gray-500">{t.testimonials.projectImage}</span>
+=======
+                        <span className="text-gray-400 dark:text-gray-500">{texts.testimonials.projectImage}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                       </div>
                       <div className="absolute -bottom-2 -left-2 w-28 h-28 bg-gradient-to-br from-primary to-purple-500 rounded-full opacity-20 blur-sm"></div>
                     </div>
@@ -225,7 +243,11 @@ export default function Testimonials() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center mt-3 text-primary dark:text-primary-400 hover:underline"
                       >
+<<<<<<< HEAD
                         <FaLinkedin className="mr-1" /> {t.testimonials.viewProfile}
+=======
+                        <FaLinkedin className="mr-1" /> {texts.testimonials.viewProfile}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                       </a>
                     </div>
                   </div>
@@ -274,7 +296,11 @@ export default function Testimonials() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
+<<<<<<< HEAD
             {t.testimonials.viewAll || 'Tüm Referansları Gör'}
+=======
+            Tüm Referansları Gör
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.button>
         </div>
       </Container>

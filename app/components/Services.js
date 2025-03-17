@@ -3,10 +3,17 @@
 import { useRef, useEffect } from 'react';
 import { FaLaptopCode, FaMobileAlt, FaDesktop, FaServer, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
 
 export default function Services() {
   const { t, locale } = useTranslation();
+=======
+import { useLanguage } from '../context/LanguageContext';
+
+export default function Services() {
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   // Servis açıklamaları
   const serviceDescriptions = {
     tr: {
@@ -125,10 +132,17 @@ export default function Services() {
       <Container>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+<<<<<<< HEAD
             {t.services.title}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {t.services.description}
+=======
+            {texts.services.title}
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            {texts.services.description}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </p>
         </div>
 
@@ -143,10 +157,17 @@ export default function Services() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary dark:text-white transition-colors duration-300">
+<<<<<<< HEAD
                   {serviceTitles[locale][service.titleKey]}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
                   {serviceDescriptions[locale][service.descriptionKey]}
+=======
+                  {serviceTitles[language][service.titleKey]}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                  {serviceDescriptions[language][service.descriptionKey]}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 </p>
               </div>
             </div>

@@ -3,36 +3,60 @@
 import { useRef, useEffect, useState } from 'react';
 import { FaLaptopCode, FaUsers, FaSmile, FaTrophy } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function StatisticsSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+<<<<<<< HEAD
   const { t } = useTranslation();
+=======
+  const { texts } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
   // İstatistik verileri
   const stats = [
     {
       icon: <FaLaptopCode className="text-blue-500 dark:text-blue-400 w-8 h-8" />,
+<<<<<<< HEAD
       title: t.statistics.completedProjects,
+=======
+      title: texts.statistics.completedProjects,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       value: 120,
       color: "text-blue-500 dark:text-blue-400"
     },
     {
       icon: <FaUsers className="text-green-500 dark:text-green-400 w-8 h-8" />,
+<<<<<<< HEAD
       title: t.statistics.happyClients,
+=======
+      title: texts.statistics.happyClients,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       value: 85,
       color: "text-green-500 dark:text-green-400"
     },
     {
       icon: <FaSmile className="text-purple-500 dark:text-purple-400 w-8 h-8" />,
+<<<<<<< HEAD
       title: t.statistics.workingHours,
+=======
+      title: texts.statistics.workingHours,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       value: "12.500+",
       color: "text-purple-500 dark:text-purple-400"
     },
     {
       icon: <FaTrophy className="text-amber-500 dark:text-amber-400 w-8 h-8" />,
+<<<<<<< HEAD
       title: t.statistics.awards,
+=======
+      title: texts.statistics.awards,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       value: 15,
       color: "text-amber-500 dark:text-amber-400"
     }
@@ -40,10 +64,17 @@ export default function StatisticsSection() {
 
   // Yetenek yüzdeleri
   const skills = [
+<<<<<<< HEAD
     { name: t.statistics.areas.webDesign, percentage: 95, color: "indigo" },
     { name: t.statistics.areas.frontend, percentage: 90, color: "teal" },
     { name: t.statistics.areas.backend, percentage: 85, color: "purple" },
     { name: t.statistics.areas.mobile, percentage: 80, color: "amber" }
+=======
+    { name: texts.statistics.areas.webDesign, percentage: 95, color: "indigo" },
+    { name: texts.statistics.areas.frontend, percentage: 90, color: "teal" },
+    { name: texts.statistics.areas.backend, percentage: 85, color: "purple" },
+    { name: texts.statistics.areas.mobile, percentage: 80, color: "amber" }
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   ];
 
   // Sayfa görünür olduğunda animasyonları başlat
@@ -76,16 +107,26 @@ export default function StatisticsSection() {
     >
       <Container>
         <div className="text-center mb-16">
+<<<<<<< HEAD
           <h2 className="text-4xl font-bold mb-4">{t.statistics.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             {t.statistics.subtitle}
+=======
+          <h2 className="text-4xl font-bold mb-4">{texts.statistics.title}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            {texts.statistics.subtitle}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Sol taraf - İstatistikler */}
           <div>
+<<<<<<< HEAD
             <h3 className="text-2xl font-bold mb-8">{t.statistics.byNumbers}</h3>
+=======
+            <h3 className="text-2xl font-bold mb-8">{texts.statistics.byNumbers}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <div 
@@ -110,7 +151,11 @@ export default function StatisticsSection() {
 
           {/* Sağ taraf - Yetenek çemberleri */}
           <div>
+<<<<<<< HEAD
             <h3 className="text-2xl font-bold mb-8">{t.statistics.expertiseAreas}</h3>
+=======
+            <h3 className="text-2xl font-bold mb-8">{texts.statistics.expertiseAreas}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
             <div className="grid grid-cols-2 gap-8">
               {skills.map((skill, index) => (
                 <div key={index} className="text-center">

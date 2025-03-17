@@ -5,14 +5,22 @@ import Link from 'next/link';
 import { FaBars, FaTimes, FaAngleDown } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
 import AnimatedLogo from './AnimatedLogo';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
 import LanguageToggle from './LanguageToggle';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+<<<<<<< HEAD
   const { t, locale } = useTranslation();
+=======
+  const { texts, language, toggleLanguage } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +50,7 @@ export default function Header() {
   // Ana menü öğeleri - ID'leri doğru bölümlere göre ayarlanmış hali
   const menuItems = [
     { 
+<<<<<<< HEAD
       title: locale === 'tr' ? 'Ana Sayfa' : 'Home', 
       href: '/' 
     },
@@ -64,6 +73,30 @@ export default function Header() {
     },
     { 
       title: locale === 'tr' ? 'İletişim' : 'Contact', 
+=======
+      title: language === 'tr' ? 'Ana Sayfa' : 'Home', 
+      href: '/' 
+    },
+    { 
+      title: language === 'tr' ? 'Hizmetlerimiz' : 'Services', 
+      href: '#services',
+      dropdown: [
+        { title: language === 'tr' ? 'Web Tasarım' : 'Web Design', href: '#services' },
+        { title: language === 'tr' ? 'Mobil Uygulama' : 'Mobile App', href: '#services' },
+        { title: language === 'tr' ? 'Yazılım Geliştirme' : 'Software Development', href: '#services' }
+      ]
+    },
+    { 
+      title: language === 'tr' ? 'Portfolyo' : 'Portfolio', 
+      href: '#portfolio' 
+    },
+    { 
+      title: language === 'tr' ? 'Teknolojiler' : 'Technologies', 
+      href: '#techShowcase' 
+    },
+    { 
+      title: language === 'tr' ? 'İletişim' : 'Contact', 
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       href: '#iletisim' 
     }
   ];
@@ -135,14 +168,30 @@ export default function Header() {
             </div>
 
             {/* Dil değiştirme butonu */}
+<<<<<<< HEAD
             <div className="ml-4">
               <LanguageToggle />
             </div>
+=======
+            <button 
+              onClick={toggleLanguage}
+              className="ml-4 px-3 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors flex items-center justify-center"
+              aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+            >
+              <span className="font-medium text-sm">
+                {language === 'tr' ? 'EN' : 'TR'}
+              </span>
+            </button>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
             
             {/* İletişim Butonu */}
             <Link href="#iletisim" legacyBehavior>
             <a className="ml-4 px-5 py-2 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+<<<<<<< HEAD
             {locale === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
+=======
+            {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
             </a>
             </Link>
           </nav>
@@ -150,7 +199,19 @@ export default function Header() {
           {/* Mobil Menü Düğmesi */}
           <div className="md:hidden flex items-center space-x-4">
             <ThemeToggle />
+<<<<<<< HEAD
             <LanguageToggle />
+=======
+            <button 
+              onClick={toggleLanguage}
+              className="px-3 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors flex items-center justify-center"
+              aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+            >
+              <span className="font-medium text-sm">
+                {language === 'tr' ? 'EN' : 'TR'}
+              </span>
+            </button>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
             <button
               type="button"
               onClick={toggleMenu}
@@ -222,7 +283,11 @@ export default function Header() {
                   className="mx-2 my-2 px-4 py-2 bg-gradient-to-r from-primary to-purple-600 text-white font-medium rounded-lg text-center"
                   onClick={() => setIsOpen(false)}
                 >
+<<<<<<< HEAD
                   {locale === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
+=======
+                  {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 </a>
               </Link>
             </nav>

@@ -4,10 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaSearchPlus, FaLink, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
 
 export default function Portfolio() {
   const { t, locale } = useTranslation();
+=======
+import { useLanguage } from '../context/LanguageContext';
+
+export default function Portfolio() {
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   const [activeFilter, setActiveFilter] = useState('all');
   const [visibleProjects, setVisibleProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -18,6 +25,7 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
+<<<<<<< HEAD
       title: t.portfolio.projects.ecommerce.title,
       description: t.portfolio.projects.ecommerce.description,
       category: 'web',
@@ -69,15 +77,75 @@ export default function Portfolio() {
       technologies: ['C#', '.NET', 'SQL Server'],
       image: '/placeholder.svg',
       features: t.portfolio.projects.hotel.features
+=======
+      title: texts.portfolio.projects.ecommerce.title,
+      description: texts.portfolio.projects.ecommerce.description,
+      category: 'web',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.ecommerce.features
+    },
+    {
+      id: 2,
+      title: texts.portfolio.projects.fitness.title,
+      description: texts.portfolio.projects.fitness.description,
+      category: 'mobile',
+      technologies: ['React Native', 'Firebase', 'Redux'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.fitness.features
+    },
+    {
+      id: 3,
+      title: texts.portfolio.projects.crm.title,
+      description: texts.portfolio.projects.crm.description,
+      category: 'desktop',
+      technologies: ['Electron', 'Vue.js', 'PostgreSQL'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.crm.features
+    },
+    {
+      id: 4,
+      title: texts.portfolio.projects.finance.title,
+      description: texts.portfolio.projects.finance.description,
+      category: 'web',
+      technologies: ['Next.js', 'TypeScript', 'GraphQL'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.finance.features
+    },
+    {
+      id: 5,
+      title: texts.portfolio.projects.social.title,
+      description: texts.portfolio.projects.social.description,
+      category: 'mobile',
+      technologies: ['Flutter', 'Dart', 'Firebase'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.social.features
+    },
+    {
+      id: 6,
+      title: texts.portfolio.projects.hotel.title,
+      description: texts.portfolio.projects.hotel.description,
+      category: 'desktop',
+      technologies: ['C#', '.NET', 'SQL Server'],
+      image: '/placeholder.svg',
+      features: texts.portfolio.projects.hotel.features
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
     }
   ];
 
   // Kategoriler
   const categories = [
+<<<<<<< HEAD
     { id: 'all', label: t.portfolio.categories.all },
     { id: 'web', label: t.portfolio.categories.web },
     { id: 'mobile', label: t.portfolio.categories.mobile },
     { id: 'desktop', label: t.portfolio.categories.desktop }
+=======
+    { id: 'all', label: texts.portfolio.categories.all },
+    { id: 'web', label: texts.portfolio.categories.web },
+    { id: 'mobile', label: texts.portfolio.categories.mobile },
+    { id: 'desktop', label: texts.portfolio.categories.desktop }
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   ];
 
   // Filtreleme işlemi
@@ -133,9 +201,15 @@ export default function Portfolio() {
     <section id="portfolio" className="py-20 bg-gray-50 dark:bg-gray-900">
       <Container>
         <div className="text-center mb-12">
+<<<<<<< HEAD
           <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.portfolio.title}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
             {t.portfolio.intro}
+=======
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{texts.portfolio.title}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            {texts.portfolio.intro}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </p>
           
           {/* Kategori filtreleri */}
@@ -233,7 +307,11 @@ export default function Portfolio() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             >
+<<<<<<< HEAD
             {t.portfolio.viewAll}
+=======
+            {texts.portfolio.viewAll}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.button>
         </div>
       </Container>
@@ -268,7 +346,11 @@ export default function Portfolio() {
               
               {/* Özellikler */}
               <div className="mb-6">
+<<<<<<< HEAD
                 <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{t.portfolio.features}</h3>
+=======
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{texts.portfolio.features}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
                 {selectedProject.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
@@ -278,7 +360,11 @@ export default function Portfolio() {
               
               {/* Teknolojiler */}
               <div>
+<<<<<<< HEAD
                 <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{t.portfolio.technologies}</h3>
+=======
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">{texts.portfolio.technologies}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.technologies.map((tech, index) => (
                     <span 
@@ -294,10 +380,17 @@ export default function Portfolio() {
               {/* Butonlar */}
               <div className="flex gap-4 mt-8">
                 <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-600 transition-colors">
+<<<<<<< HEAD
                   <FaLink /> {t.portfolio.demo}
                 </button>
                 <button className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors">
                   <FaGithub /> {t.portfolio.github}
+=======
+                  <FaLink /> {texts.portfolio.demo}
+                </button>
+                <button className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors">
+                  <FaGithub /> {texts.portfolio.github}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 </button>
               </div>
             </div>

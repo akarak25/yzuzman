@@ -1,6 +1,10 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from './components/ThemeProvider'
+<<<<<<< HEAD
+=======
+import { LanguageProvider } from './context/LanguageContext'
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +21,13 @@ export default function RootLayout({ children }) {
     <html lang="tr">
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider>
+<<<<<<< HEAD
           {children}
+=======
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
         </ThemeProvider>
       </body>
     </html>

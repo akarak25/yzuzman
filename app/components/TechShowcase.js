@@ -5,20 +5,33 @@ import { motion } from 'framer-motion';
 import { FaReact, FaMobileAlt, FaNodeJs, FaDatabase, FaCode } from 'react-icons/fa';
 import { SiNextdotjs, SiFlutter, SiExpress, SiAngular, SiVuedotjs, SiDjango, SiLaravel } from 'react-icons/si';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function TechShowcase() {
   const containerRef = useRef(null);
   const [width, setWidth] = useState(0);
   const [activeCard, setActiveCard] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+<<<<<<< HEAD
   const { t, locale } = useTranslation();
+=======
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
   const cards = [
     {
       icon: <FaReact className="text-white text-5xl" />,
+<<<<<<< HEAD
       title: t.tech.webDev,
       description: t.tech.webDevDesc,
+=======
+      title: texts.tech.webDev,
+      description: texts.tech.webDevDesc,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       gradient: "from-indigo-600 to-purple-600",
       technologies: [
         { name: "React", icon: <FaReact className="text-white" /> },
@@ -29,8 +42,13 @@ export default function TechShowcase() {
     },
     {
       icon: <FaMobileAlt className="text-white text-5xl" />,
+<<<<<<< HEAD
       title: t.tech.mobileDev,
       description: t.tech.mobileDevDesc,
+=======
+      title: texts.tech.mobileDev,
+      description: texts.tech.mobileDevDesc,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       gradient: "from-blue-500 to-cyan-500",
       technologies: [
         { name: "React Native", icon: <FaReact className="text-white" /> },
@@ -39,8 +57,13 @@ export default function TechShowcase() {
     },
     {
       icon: <FaNodeJs className="text-white text-5xl" />,
+<<<<<<< HEAD
       title: t.tech.backend,
       description: t.tech.backendDesc,
+=======
+      title: texts.tech.backend,
+      description: texts.tech.backendDesc,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       gradient: "from-green-500 to-emerald-500",
       technologies: [
         { name: "Node.js", icon: <FaNodeJs className="text-white" /> },
@@ -51,15 +74,25 @@ export default function TechShowcase() {
     },
     {
       icon: <FaDatabase className="text-white text-5xl" />,
+<<<<<<< HEAD
       title: t.tech.database,
       description: t.tech.databaseDesc,
+=======
+      title: texts.tech.database,
+      description: texts.tech.databaseDesc,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       gradient: "from-orange-500 to-yellow-500",
       technologies: []
     },
     {
       icon: <FaCode className="text-white text-5xl" />,
+<<<<<<< HEAD
       title: t.tech.ai,
       description: t.tech.aiDesc,
+=======
+      title: texts.tech.ai,
+      description: texts.tech.aiDesc,
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
       gradient: "from-red-500 to-pink-500",
       technologies: []
     }
@@ -96,9 +129,15 @@ export default function TechShowcase() {
       
       <Container className="relative z-10">
         <div className="text-center mb-16">
+<<<<<<< HEAD
           <h2 className="text-4xl font-bold mb-4">{t.tech.title}</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             {t.tech.subtitle}
+=======
+          <h2 className="text-4xl font-bold mb-4">{texts.tech.title}</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {texts.tech.subtitle}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </p>
         </div>
       </Container>
@@ -203,7 +242,11 @@ export default function TechShowcase() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
+<<<<<<< HEAD
           <span>{t.tech.scrollText}</span>
+=======
+          <span>{texts.tech.scrollText}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
         </motion.div>
       </div>
     </section>

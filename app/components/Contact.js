@@ -4,10 +4,17 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock, FaUser, FaPen } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
 
 export default function Contact() {
   const { t } = useTranslation();
+=======
+import { useLanguage } from '../context/LanguageContext';
+
+export default function Contact() {
+  const { texts, language } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,7 +108,11 @@ export default function Contact() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
+<<<<<<< HEAD
             {t.contact.title}
+=======
+            {texts.contact.title}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.h2>
           <motion.p 
             className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
@@ -109,7 +120,11 @@ export default function Contact() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
+<<<<<<< HEAD
             {t.contact.intro}
+=======
+            {texts.contact.intro}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.p>
         </div>
 
@@ -124,7 +139,11 @@ export default function Contact() {
               variants={itemVariants}
               className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-lg mb-8"
             >
+<<<<<<< HEAD
               <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">{t.contact.contactUs}</h3>
+=======
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">{texts.contact.contactUs}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               
               <div className="space-y-6">
                 <motion.div 
@@ -135,8 +154,13 @@ export default function Contact() {
                     <FaMapMarkerAlt size={18} />
                   </div>
                   <div>
+<<<<<<< HEAD
                     <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{t.contact.address}</h4>
                     <p className="text-gray-600 dark:text-gray-300">{t.contact.addressValue}</p>
+=======
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{texts.contact.address}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">{texts.contact.addressValue}</p>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                   </div>
                 </motion.div>
                 
@@ -148,7 +172,11 @@ export default function Contact() {
                     <FaEnvelope size={18} />
                   </div>
                   <div>
+<<<<<<< HEAD
                     <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{t.contact.email}</h4>
+=======
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{texts.contact.email}</h4>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     <a href="mailto:info@yzuzman.com" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-400 transition-colors">
                       info@yzuzman.com
                     </a>
@@ -163,7 +191,11 @@ export default function Contact() {
                     <FaPhone size={18} />
                   </div>
                   <div>
+<<<<<<< HEAD
                     <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{t.contact.phone}</h4>
+=======
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">{texts.contact.phone}</h4>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     <a href="tel:+902123456789" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-400 transition-colors">
                       +90 212 345 67 89
                     </a>
@@ -180,11 +212,16 @@ export default function Contact() {
                 <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4 text-purple-600 dark:text-purple-400">
                   <FaClock size={18} />
                 </div>
+<<<<<<< HEAD
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">{t.contact.workingHours}</h3>
+=======
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">{texts.contact.workingHours}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               </div>
               
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-700">
+<<<<<<< HEAD
                   <span className="text-gray-600 dark:text-gray-300">{t.contact.mondayFriday}</span>
                   <span className="font-medium text-gray-900 dark:text-white">09:00 - 18:00</span>
                 </div>
@@ -195,6 +232,18 @@ export default function Contact() {
                 <div className="flex justify-between items-center py-2">
                   <span className="text-gray-600 dark:text-gray-300">{t.contact.sunday}</span>
                   <span className="font-medium text-gray-900 dark:text-white">{t.contact.closed}</span>
+=======
+                  <span className="text-gray-600 dark:text-gray-300">{texts.contact.mondayFriday}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">09:00 - 18:00</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-700">
+                  <span className="text-gray-600 dark:text-gray-300">{texts.contact.saturday}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">10:00 - 14:00</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-600 dark:text-gray-300">{texts.contact.sunday}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{texts.contact.closed}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 </div>
               </div>
             </motion.div>
@@ -214,7 +263,11 @@ export default function Contact() {
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full"></div>
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-500/20 to-teal-500/20 rounded-full"></div>
               
+<<<<<<< HEAD
               <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white relative z-10">{t.contact.subtitle}</h3>
+=======
+              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white relative z-10">{texts.contact.subtitle}</h3>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               
               {isSubmitted ? (
                 <motion.div 
@@ -228,15 +281,24 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
+<<<<<<< HEAD
                   <h4 className="text-xl font-bold mb-2">{t.contact.success}</h4>
                   <p>{t.contact.successMsg}</p>
+=======
+                  <h4 className="text-xl font-bold mb-2">{texts.contact.success}</h4>
+                  <p>{texts.contact.successMsg}</p>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                   <div className="relative">
                     <div className={`absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 transition-all duration-300 ${activeInput === 'name' || formData.name ? 'text-primary -translate-y-10 text-xs' : ''}`}>
                       <FaUser className="inline mr-2" size={activeInput === 'name' || formData.name ? 12 : 16} />
+<<<<<<< HEAD
                       <span>{t.contact.name}</span>
+=======
+                      <span>{texts.contact.name}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     </div>
                     <input
                       type="text"
@@ -257,7 +319,11 @@ export default function Contact() {
                   <div className="relative">
                     <div className={`absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 transition-all duration-300 ${activeInput === 'email' || formData.email ? 'text-primary -translate-y-10 text-xs' : ''}`}>
                       <FaEnvelope className="inline mr-2" size={activeInput === 'email' || formData.email ? 12 : 16} />
+<<<<<<< HEAD
                       <span>{t.contact.email}</span>
+=======
+                      <span>{texts.contact.email}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     </div>
                     <input
                       type="email"
@@ -278,7 +344,11 @@ export default function Contact() {
                   <div className="relative">
                     <div className={`absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 transition-all duration-300 ${activeInput === 'subject' || formData.subject ? 'text-primary -translate-y-10 text-xs' : ''}`}>
                       <FaPen className="inline mr-2" size={activeInput === 'subject' || formData.subject ? 12 : 16} />
+<<<<<<< HEAD
                       <span>{t.contact.subject}</span>
+=======
+                      <span>{texts.contact.subject}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     </div>
                     <input
                       type="text"
@@ -298,7 +368,11 @@ export default function Contact() {
                   
                   <div className="relative">
                     <div className={`absolute left-3 top-6 text-gray-400 transition-all duration-300 ${activeInput === 'message' || formData.message ? 'text-primary -translate-y-4 text-xs' : ''}`}>
+<<<<<<< HEAD
                       <span>{t.contact.message}</span>
+=======
+                      <span>{texts.contact.message}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     </div>
                     <textarea
                       id="message"
@@ -329,10 +403,17 @@ export default function Contact() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
+<<<<<<< HEAD
                     {t.contact.sending}
                     </>
                     ) : (
                     t.contact.send
+=======
+                    {texts.contact.sending}
+                    </>
+                    ) : (
+                    texts.contact.send
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                     )}
                   </motion.button>
                 </form>

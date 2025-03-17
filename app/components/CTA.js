@@ -4,7 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaPhone } from 'react-icons/fa';
 import Container from './Container';
+<<<<<<< HEAD
 import useTranslation from '../hooks/useTranslation';
+=======
+import { useLanguage } from '../context/LanguageContext';
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
 export default function CTA() {
   const [email, setEmail] = useState('');
@@ -12,7 +16,11 @@ export default function CTA() {
   const [isLoading, setIsLoading] = useState(false);
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+<<<<<<< HEAD
   const { t } = useTranslation();
+=======
+  const { texts } = useLanguage();
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,7 +105,11 @@ export default function CTA() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
+<<<<<<< HEAD
             {t.cta.title}
+=======
+            {texts.cta.title}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.h2>
           
           <motion.p 
@@ -106,7 +118,11 @@ export default function CTA() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
+<<<<<<< HEAD
             {t.cta.subtitle}
+=======
+            {texts.cta.subtitle}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
           </motion.p>
           
           <motion.div
@@ -138,7 +154,11 @@ export default function CTA() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+<<<<<<< HEAD
                       placeholder={t.cta.emailPlaceholder}
+=======
+                      placeholder={texts.cta.emailPlaceholder}
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                       className="w-full px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                       required
                       disabled={isLoading}
@@ -160,7 +180,11 @@ export default function CTA() {
                       </svg>
                     ) : (
                       <>
+<<<<<<< HEAD
                         {t.cta.buttonText} <FaArrowRight className="ml-2" />
+=======
+                        {texts.cta.buttonText} <FaArrowRight className="ml-2" />
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
                       </>
                     )}
                   </motion.button>
@@ -174,7 +198,11 @@ export default function CTA() {
               animate={isVisible ? { opacity: 1 } : {}}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
+<<<<<<< HEAD
               <span>{t.cta.orCall}</span>
+=======
+              <span>{texts.cta.orCall}</span>
+>>>>>>> 4ff658e466399608fb3515ee153f73b730615225
               <a 
                 href="tel:+902123456789" 
                 className="inline-flex items-center ml-2 font-bold hover:text-white transition-colors group"
